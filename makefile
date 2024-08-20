@@ -1,8 +1,9 @@
 JFLAGS = -d . 
 JC = javac
+SUBDIRS = tool
 
-lox: $(wildcard *.java)
-	$(JC) $(JFLAGS) $(wildcard *.java)
+lox: $(wildcard *.java, $(SUBDIRS)/*.java)
+	$(JC) $(JFLAGS) $(wildcard *.java) $(wildcard $(SUBDIRS)/*.java)
 
 clean:
 	$(RM) -r ./com
